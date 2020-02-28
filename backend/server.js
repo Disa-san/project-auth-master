@@ -52,7 +52,7 @@ const authenticateUser = async (req, res, next) => {
 // overridden when starting the server. For example:
 //
 //   PORT=9000 npm start
-const port = process.env.PORT || 8000
+const port = process.env.PORT || 9000
 const app = express()
 
 // Add middlewares to enable cors and json body parsing
@@ -94,7 +94,7 @@ app.post('/sessions', async (req, res) => {
     res.json({ userId: user._id, accessToken: user.accessToken })
   }
   else {
-    res.json({ notFound: true, message: 'The user was not found or entered password is wrong' })
+    res.status(400).json({ notFound: true })
   }
 })
 

@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
-const URL = 'https://auth-ninadisa.herokuapp.com/sessions'
-//const URL = 'http://localhost:8000/sessions'
+// const URL = 'https://auth-ninadisa.herokuapp.com/sessions'
+const URL = 'http://localhost:9000/sessions'
 
 export const LoginUser = props => {
   //useHistory this to route to "StartPage" when login succeeded. 
@@ -22,7 +22,7 @@ export const LoginUser = props => {
     })
       .then(res => {
         if (!res.ok) {
-          throw new Error('The user was not found or entered password is wrong')
+          throw new Error('The user was not found or the entered password was wrong')
         }
         return res.json()
       })
